@@ -20,9 +20,11 @@ switch($action){
 	case 'CommentaireAjouté':  {
 		
 		$article = $pdo->getarticles($_GET['id']); 
-		$Lescoms = $pdo->getLesComs($_GET['id']); 
+		$nbelementsparpage = 4;
+		$debut = $page*$nbelementsparpage;
+		$Lescoms = $pdo->getLesComs($debut, $nbelementsparpage,$_GET['id']); 
 		$addCommentaire = $pdo->addComs($_POST['commentaire'],$_SESSION['article']);
-		header('Location: index.php?id='.$_SESSION['article'].'&uc=articles&action=ConsulterArticle');
+		header('Location: index.php?id='.$_SESSION['article'].'&page=1&uc=articles&action=ConsulterArticle');
 		break;
 	}
 
