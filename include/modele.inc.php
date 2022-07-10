@@ -111,7 +111,7 @@ class PdoGsb{
 	    
 	 public function addComs($commentaire,$id_article){
 		$req="INSERT INTO commentaires (commentaire, id_article,id_utilisateur,date) Values (:commentaire,:id_article,:id_utilisateur,:date)";
-		$date = date('d-m-y h:i:s');
+		$date = date('y-m-d H:i:s');
 		$prep = PdoGsb::$monPdo->prepare($req);
 		$prep->bindValue(':commentaire', $commentaire,PDO::PARAM_STR);
 		$prep->bindValue(':id_article', $id_article,PDO::PARAM_INT);
@@ -194,10 +194,25 @@ class PdoGsb{
 		  }
 		 
 	  }
+
+	  public function verifEmail($email) {
+		$req="select email from utilisateurs where email = :email";
+		try {
+		  $prep = PdoGsb::$monPdo->prepare($req);
+		  $prep->bindValue(':email',$email,PDO::PARAM_STR);
+		  $prep->execute();
+		  $ligne = $prep->fetchAll(PDO::FETCH_ASSOC);
+		  return $ligne;
+		 } catch (Exception $e) 
+		  {
+			  echo 'Exception reçue : ',  $e->getMessage(), "\n";
+		  }
+		 
+	  }
 	  public function creerArticle($article,$categorie) {
 		$req="INSERT INTO articles (article,id_utilisateur, id_categorie, date)VALUES(:article , :id_utilisateur , :id_categorie , :date)";
 		try {
-		  $date = date('d-m-y h:i:s');
+		  $date = date('y-m-d H:i:s');
 		  $prep = PdoGsb::$monPdo->prepare($req);
 		  $prep->bindValue(':article', $article,PDO::PARAM_STR);
 		  $prep->bindValue(':id_utilisateur',$_SESSION['id'],PDO::PARAM_INT);
