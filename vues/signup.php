@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<form action="index.php?uc=inscription&action=ValidInscription" method ="post">
+<form action="index.php?uc=connexion&action=ValidInscription" method ="post">
    
      
 
