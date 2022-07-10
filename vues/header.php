@@ -95,7 +95,7 @@
         <i class="bi bi-person-fill"></i><a href  = "index.php?uc=connexion&action=demandeConnexion" class = "test"> CONNEXION</a>
         </li>
         <li>
-        <i class="bi bi-person-plus-fill"></i><a href  = "index.php?uc=inscription&action=signup" class = "test">    INSCRIPTION</a>
+        <i class="bi bi-person-plus-fill"></i><a href  = "index.php?uc=connexion&action=signup" class = "test">    INSCRIPTION</a>
         </li>';
         } else if ($_SESSION["type"]> 1) {
             echo '<li>
