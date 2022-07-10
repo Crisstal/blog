@@ -140,6 +140,7 @@
 
 
 ?>
+
 <div class ="align-pagination">
 <?php
             for($i = 1; $i<= $nbdepages;$i++) {
@@ -153,13 +154,17 @@
      }?>
 
     </div>
-
+<?php 
+if (isset($_SESSION['login'])) {
+echo '
 <textarea name = "commentaire" style = "resize : none; height : 200px; width : 500px;" rows="5" cols="33"  class="form-control" id="floatingInput"
                                         placeholder="Redigez un commentaire"></textarea>
 <button class ="btn-publier" type = "submit">PUBLIER</button>
 <button style = "opacity : 0;" type ="button"></button>
-</div>
+</div>';
 
+}
+?>
     </form>
 <br>
 

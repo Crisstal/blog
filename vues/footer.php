@@ -56,7 +56,8 @@ background: BLACK;
        
         <i class="bi bi-house"></i> <a href  = "index.php?uc=home&action=accueil">Accueil </a>
 
-       
+</li>
+
         <?php 
         if(!isset($_SESSION['type'])){
             echo ' <li>

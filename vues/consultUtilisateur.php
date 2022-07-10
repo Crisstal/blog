@@ -38,7 +38,7 @@
           document.cookie ="idPra= 0";
           document.cookie ="idPraMODIF= 0";
       }
-      
+
       </script>
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
@@ -101,7 +101,7 @@
    
 	   foreach($LesUtilisateurs as $user)  {  
       
-		   echo "<div id = ".$user['id']."row'><tr><th id ='".$user['id']."line0' scope='row'>".$user['id']."</th><td id ='".$user['id']."line1'>".$user['id_droits']."</td><td id ='".$user['id']."line2'>".$user['password']."</td><td id ='".$user['id']."line3'>".$user['email']."</td><td id ='".$user['id']."line4'>".$user['login']."</td><td id ='".$user['id']."modifline'><button type = button id ='".$user['id']."modif'class='btn' onclick =modifbtn(".$user['id'].")><i id ='".$user['id']."modifstyle' style='color:black; font-size:20px;' class='bi bi-pencil-fill'></i></button></td><td id ='".$user['id']."supprline'><button type = button id ='".$user['id']."suppr' onclick =VerifUser(".$user['id'].") class='btn'><i  style='color:black; font-size:20px;' class='bi bi-archive-fill'></i></button></td></div>";        
+		   echo "<div id = ".$user['id']."row'><tr name =".$user['id']." ><th id ='".$user['id']."line0' scope='row'>".$user['id']."</th><td id ='".$user['id']."line1'>".$user['id_droits']."</td><td id ='".$user['id']."line2'>".$user['password']."</td><td id ='".$user['id']."line3'>".$user['email']."</td><td id ='".$user['id']."line4'>".$user['login']."</td><td id ='".$user['id']."modifline'><button type = button id ='".$user['id']."modif'class='btn' onclick =modifbtn(".$user['id'].")><i id ='".$user['id']."modifstyle' style='color:black; font-size:20px;' class='bi bi-pencil-fill'></i></button></td><td id ='".$user['id']."supprline'><button type = button id ='".$user['id']."suppr' onclick =VerifUser(".$user['id'].") class='btn'><i  style='color:black; font-size:20px;' class='bi bi-archive-fill'></i></button></td></div>";        
 		 }
 
      
@@ -202,6 +202,7 @@ aujourdhui.setMinutes(aujourdhui.getMinutes()+4)
       ?>
       } 
      document.getElementById(btn+"lineinput"+i).options[document.getElementById(btn+"lineinput"+i).selectedIndex].text = lines;
+     document.getElementById(btn+"lineinput"+i).value = lines;
     } else {
   let lines = document.getElementById(btn+"line"+i).innerHTML;
   document.getElementById(btn+"line"+i).innerHTML="";
