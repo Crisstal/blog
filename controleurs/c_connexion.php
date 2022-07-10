@@ -31,11 +31,12 @@ switch($action){
 			var_dump($_SESSION['type']);
 		}
 		else{
-			include("vues/footer.php");
+			
             $_SESSION['login']= $login; // mémorise les variables de session
 			$_SESSION['id']= $id;
 			$_SESSION['type']= $type;
 			$_SESSION['log']= $log;
+			include("vues/footer.php");
 			include("vues/header.php");
 			
             $LesArticles = $pdo->get3articles(); 
@@ -50,7 +51,8 @@ switch($action){
 		break;
 	} 
 	case 'ValidInscription' :{
-		
+	$verifemail = $pdo->verifEmail($_POST['Email']);
+	if(empty( $verifemail)){
 		if ($_POST["Password1"] == $_POST["Password2"]) {
 			include("vues/v_connexion.php");
 		$creerUtilisateur = $pdo->creerUtilisateur($_POST["Login"],$_POST["Password1"],$_POST["Email"]);	
@@ -59,6 +61,10 @@ switch($action){
 		include("vues/signup.php");
 		
 	}
+} else {
+	echo "* Un compte existe déjà avec cette email";
+	include("vues/signup.php");
+}
 
 }
 	

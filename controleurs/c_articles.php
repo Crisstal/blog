@@ -39,6 +39,7 @@ switch($action){
 		include("vues/header.php");
 		include("vues/footer.php");
 		include("vues/creer-article.php");
+		
 	}
 		break;
 	}
@@ -51,6 +52,7 @@ switch($action){
 		include("vues/header.php");
 		include("vues/footer.php");
 		include("vues/creer-article.php");
+		echo "<script>alert('Article crée !')</script>";
 		break;
 	}case 'lesarticles':  {
 		if (!empty($_GET['categorie'])) {

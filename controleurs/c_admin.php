@@ -20,7 +20,7 @@ switch($action){
 		include("vues/header.php");
 		include("vues/consultUtilisateur.php");
 	}
-				
+			
 }
 	
 	
@@ -28,17 +28,19 @@ switch($action){
 	
 }
 case 'Modifier': {
-		$saveid = $_COOKIE["idPraMODIF"];
+	$saveid = $_COOKIE["idPraMODIF"];
 		if (isset($_POST[$saveid."lineinput2"]))  {
 		$req = $pdo->modifierUtilisateurAdmin($_POST[$saveid."lineinput4"],$_POST[$saveid."lineinput3"],$_POST[$saveid."lineinput2"],$_POST[$saveid."lineinput1"],$saveid);
-		header('Location: index.php?page=1&uc=admin&action=ConsulterUtilisateur');
+		
+	} 
+		@header('Location: index.php?page=1&uc=admin&action=ConsulterUtilisateur');
+
+}
+
+
+
+}
 	
-}
-
-
-
-}
-	}
 include("vues/footer.php");
 
 ?>
