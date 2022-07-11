@@ -61,7 +61,7 @@
                                 </div>
                                 
                      
-                                <input required="required" name="file" type="file">
+                                <input required="required" name="file" type="file" accept="image/jpeg">
                             
                                 
                                 <table id ="container-prod">
