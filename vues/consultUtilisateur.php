@@ -81,6 +81,7 @@
 <body>
 
             <!-- Chart Start -->
+            
             <form action="index.php?uc=admin&action=Modifier" method ="post">
             
             <table id ="table" class="table tableauC" style ="margin-left : 30px; margin-top : 10%;">
@@ -101,7 +102,7 @@
    
 	   foreach($LesUtilisateurs as $user)  {  
       
-		   echo "<div id = ".$user['id']."row'><tr name =".$user['id']." ><th id ='".$user['id']."line0' scope='row'>".$user['id']."</th><td id ='".$user['id']."line1'>".$user['id_droits']."</td><td id ='".$user['id']."line2'>".$user['password']."</td><td id ='".$user['id']."line3'>".$user['email']."</td><td id ='".$user['id']."line4'>".$user['login']."</td><td id ='".$user['id']."modifline'><button type = button id ='".$user['id']."modif'class='btn' onclick =modifbtn(".$user['id'].")><i id ='".$user['id']."modifstyle' style='color:black; font-size:20px;' class='bi bi-pencil-fill'></i></button></td><td id ='".$user['id']."supprline'><button type = button id ='".$user['id']."suppr' onclick =VerifUser(".$user['id'].") class='btn'><i  style='color:black; font-size:20px;' class='bi bi-archive-fill'></i></button></td></div>";        
+		   echo "<div id = ".$user['id']."row'><tr name =".$user['id']." ><th id ='".$user['id']."line0' scope='row'>".$user['id']."</th><td id ='".$user['id']."line1'>".$user['id_droits']."</td><td id ='".$user['id']."line2'>".$user['password']."</td><td id ='".$user['id']."line3'>".$user['email']."</td><td id ='".$user['id']."line4'>".$user['login']."</td><td id ='".$user['id']."modifline'><button type = button id ='".$user['id']."modif'class='btn' onclick =modifbtn(".$user['id'].")><i id ='".$user['id']."modifstyle' style='color:black; font-size:20px;' class='bi bi-pencil-fill'></i></button></td><td id ='".$user['id']."supprline'><button type = submit id ='".$user['id']."suppr' onclick =VerifUser(".$user['id'].") class='btn'><i  style='color:black; font-size:20px;' class='bi bi-archive-fill'></i></button></td></div>";        
 		 }
 
      
@@ -137,31 +138,6 @@ aujourdhui.setMinutes(aujourdhui.getMinutes()+1)
 
   document.cookie = "idPra ="+btn+"; expires="+aujourdhui.toGMTString()+";";
 
-
-var result = confirm("Do you want to continue?");
-
-if(result)  {
-  const row = document.getElementById(btn+"row");
-  const table = document.getElementById("table");
- for (i = 0; i<=4; i++){
-  document.getElementById(btn+"line"+i).parentNode.removeChild(document.getElementById(btn+"line"+i));
- }
- document.getElementById(btn+"supprline").parentNode.removeChild(document.getElementById(btn+"supprline"))
-    document.getElementById(btn+"modifline").parentNode.removeChild(document.getElementById(btn+"modifline"))
-
-
-
- bouton.innerHTML = bouton.innerHTML<?php
-
-$LesUsers = $pdo->supprUtilisateur($_COOKIE["idPra"]);
-?>
-
-
-// delay(2000).then(() => window.location.replace("http://localhost/GSB_Visites_2021/index.php?uc=CompteRendu&action=consultCR"));
-
- } else {
-  document.cookie = "idPra =0";
-}
         }
 
 
@@ -201,8 +177,7 @@ aujourdhui.setMinutes(aujourdhui.getMinutes()+4)
       
       ?>
       } 
-     document.getElementById(btn+"lineinput"+i).options[document.getElementById(btn+"lineinput"+i).selectedIndex].text = lines;
-     document.getElementById(btn+"lineinput"+i).value = lines;
+   
     } else {
   let lines = document.getElementById(btn+"line"+i).innerHTML;
   document.getElementById(btn+"line"+i).innerHTML="";
