@@ -28,13 +28,18 @@ switch($action){
 	
 }
 case 'Modifier': {
+	if ($_COOKIE["idPraMODIF"] != 0) {
 	$saveid = $_COOKIE["idPraMODIF"];
 		if (isset($_POST[$saveid."lineinput2"]))  {
 		$req = $pdo->modifierUtilisateurAdmin($_POST[$saveid."lineinput4"],$_POST[$saveid."lineinput3"],$_POST[$saveid."lineinput2"],$_POST[$saveid."lineinput1"],$saveid);
 		
 	} 
-		@header('Location: index.php?page=1&uc=admin&action=ConsulterUtilisateur');
+		
 
+} else {
+	$LesUsers = $pdo->supprUtilisateur($_COOKIE["idPra"]);
+}
+@header('Location: index.php?page=1&uc=admin&action=ConsulterUtilisateur');
 }
 
 
