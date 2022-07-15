@@ -97,7 +97,7 @@
         <li>
         <i class="bi bi-person-plus-fill"></i><a href  = "index.php?uc=connexion&action=signup" class = "test">    INSCRIPTION</a>
         </li>';
-        } else if ($_SESSION["type"]> 1) {
+        } else if ($_SESSION["type"] == 42) {
             echo '<li>
             <a style = "color : red">B</a>LOG
         </li>
@@ -122,7 +122,7 @@
         <i class="bi bi-file-earmark-plus"></i><a href  = "index.php?uc=articles&action=creerunarticle" class = "test">  Creer un article</a>
         </li>';
          
-        }else {
+        }else if ($_SESSION["type"] == 1){
             echo '<li>
             <a style = "color : red">B</a>LOG
         </li>
@@ -141,6 +141,34 @@
         </li>
          <li>
          <i class="bi bi-arrow-bar-left"></i>  <a href  = "index.php?uc=connexion&action=deconnexion" class = "test">  Deconnexion</a>
+        </li>';
+        } else {
+            echo '<li>
+            <a style = "color : red">B</a>LOG
+        </li>
+        <li>
+       
+        <i class="bi bi-journal-text"></i><a id ="categorie"> CATEGORIE</a>
+        
+        </li>
+        <li>
+       
+        <i class="bi bi-card-list"></i> <a href  = "index.php?page=1&uc=articles&action=lesarticles" class = "test">Tous les articles</a>
+        </li>
+        <li>
+       
+        <i class="bi bi-person-lines-fill"></i> <a href  = "index.php?uc=profil&action=consultprofil" class = "test">Modifier profil</a>
+        </li>
+        <li>
+         <i class="bi bi-arrow-bar-left"></i>  <a href  = "index.php?uc=connexion&action=deconnexion" class = "test">  Deconnexion</a>
+        </li>
+        <li>
+       
+        <i class="bi bi-file-earmark-plus"></i><a href  = "index.php?uc=articles&action=creerunarticle" class = "test">  Creer un article</a>
+        </li>
+        
+        <li>
+           <a href  = "index.php?page=1&uc=admin&action=ConsulterUtilisateur" class = "test">  ADMIN</a>
         </li>';
         }
         
