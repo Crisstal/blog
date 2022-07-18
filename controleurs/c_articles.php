@@ -7,7 +7,7 @@ switch($action){
 		$article = $pdo->getarticles($_GET['id']); 
 		$_SESSION['article'] = $_GET['id']; 
 		$page = $_GET["page"]-1;
-		$nbelementsparpage = 4;
+		$nbelementsparpage = 5;
 		$debut = $page*$nbelementsparpage;
 		$countarticle = $pdo->getCountCom($_SESSION['article']);
 		$nbdepages = ceil($countarticle[0]["cpt"]/$nbelementsparpage);
@@ -20,7 +20,7 @@ switch($action){
 	case 'CommentaireAjouté':  {
 		
 		$article = $pdo->getarticles($_GET['id']); 
-		$nbelementsparpage = 4;
+		$nbelementsparpage = 5;
 		$debut = $page*$nbelementsparpage;
 		$Lescoms = $pdo->getLesComs($debut, $nbelementsparpage,$_GET['id']); 
 		$addCommentaire = $pdo->addComs($_POST['commentaire'],$_SESSION['article']);
@@ -57,7 +57,7 @@ switch($action){
 	}case 'lesarticles':  {
 		if (!empty($_GET['categorie'])) {
 			$categorie = $_GET['categorie'];
-			$nbelementsparpage = 4;
+			$nbelementsparpage = 5;
 		$page = $_GET["page"]-1;
 		$debut = $page*$nbelementsparpage;
 		$countarticle = $pdo->getCountArticleCategorie($categorie);
@@ -66,7 +66,7 @@ switch($action){
 		} else {
 
 		
-		$nbelementsparpage = 4;
+		$nbelementsparpage = 5;
 		$page = $_GET["page"]-1;
 		$debut = $page*$nbelementsparpage;
 		$countarticle = $pdo->getCountArticle();
